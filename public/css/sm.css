@@ -1,0 +1,48 @@
+/* Sticky Social Navigator */
+.social-navigator {
+  position: fixed;
+  top: 80%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.social-navigator .icon {
+  background: #fff;
+  color: #fff;
+  font-size: 2rem;
+  width: 58px;
+  height: 58px;
+      border-radius: 0% 20% 20% 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-navigator .icon:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+/* Brand Colors */
+.icon.facebook { background: #1877f2; }
+.icon.twitter { background: #000000; }
+.icon.instagram { background: #e1306c; }
+.icon.youtube { background: #ff0000; }
+.icon.linkedin { background: #0a66c2; }
+
+
+.icon.facebook:hover { background: #1877f2; }
+.icon.twitter:hover { background: #000000; }
+.icon.instagram:hover { background: #e1306c; }
+.icon.youtube:hover { background: #ff0000; }
+.icon.linkedin:hover { background: #0a66c2; }
+
+/* Responsive: mobile/tablet */
+@media (max-width: 768px) {
+
+}

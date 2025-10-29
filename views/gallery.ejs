@@ -1,0 +1,46 @@
+<div class="gallery-header">
+    <h1>
+        <%= gallery[0].galTitle %>
+    </h1>
+    <!-- OR if you want the first gallery item's title -->
+    <!-- <h1><%= gallery[0]?.galTitle %></h1> -->
+</div>
+
+<section class="masonry-container" id="masonry-container">
+    <!-- Manually added masonry items with sample online images -->
+    <% gallery.forEach((gal)=> { %>
+        <% if (gal.galImages) { %> <!-- Check if image exists -->
+            <div class="masonry-item">
+                <img src="<%= gal.galImages %>" alt="<%= gal.galText %>" class="masonry-image" loading="lazy"
+                    data-fullsize="<%= gal.galImages %>">
+                <div class="image-title">
+                    <div class="title-text">
+                        <%= gal.galText %>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+                <% }) %>
+</section>
+
+<!-- Modal for image preview -->
+<div class="modal" id="imageModal">
+    <div class="modal-content">
+        <button class="close-button" id="closeModal">&times;</button>
+        <img id="modalImage" class="modal-image" src="" alt="">
+        <div class="modal-title" id="modalTitle"></div>
+    </div>
+</div>
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<section class="our-work-page" id="ourWorkPage">
+    <div class="our-work-container">
+        <div class="page-heading">
+            <h1 class="section-title"><%- ourWork[0].owTitle %></h1>
+            <p class="section-subtitle"><%- ourWork[0].owDescription %></p>
+        </div>
+
+        <!-- Impact Overview -->
+        <%- ourWork[0].progress %>
+
+            <!-- Program Categories -->
+            <%- ourWork[0].categories %>
+
+                <!-- Featured Programs -->
+                <%- ourWork[0].programs %>
+
+                    <!-- Success Stories -->
+                    <%- ourWork[0].stories %>
+
+                        <!-- Geographic Reach -->
+                        <%- ourWork[0].reach %>
+
+                            <!-- Get Involved CTA -->
+                            <%- ourWork[0].involved%>
+    </div>
+</section>
+

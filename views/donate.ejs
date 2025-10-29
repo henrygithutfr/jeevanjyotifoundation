@@ -1,0 +1,46 @@
+<!-- Animation Overlay -->
+<div class="animations-overlay">
+    <!-- Poppy Balloons -->
+    <div class="floating-balloon balloon-1"></div>
+    <div class="floating-balloon balloon-2"></div>
+    <div class="floating-balloon balloon-3"></div>
+    <div class="floating-balloon balloon-4"></div>
+    <div class="floating-balloon balloon-5"></div>
+    <div class="floating-balloon balloon-6"></div>
+    <div class="floating-balloon balloon-7"></div>
+    <div class="floating-balloon balloon-8"></div>
+    <div class="floating-balloon balloon-9"></div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-heart heart-1">❤️</div>
+    <div class="floating-heart heart-2">❤️</div>
+    <div class="floating-heart heart-3">❤️</div>
+    <div class="floating-heart heart-4">❤️</div>
+    <div class="floating-heart heart-5">❤️</div>
+    <div class="floating-heart heart-6">❤️</div>
+    <div class="floating-heart heart-7">❤️</div>
+    <div class="floating-heart heart-8">❤️</div>
+</div>
+
+<section class="donate-page">
+    <div class="donate-page-container">
+        <div class="page-header">
+            <h1 class="page-title"><%- donate[0].donTitle %></h1>
+            <p class="page-subtitle"><%- donate[0].donDescription %></p>
+        </div>
+
+        <%- donate[0].bankTransferDetails %>
+
+        <!-- Support Programs -->
+        <%- donate[0].cause %>
+
+        <!-- Tax Info -->
+        <div class="tax-info">
+            <%- donate[0].taxInfo %>
+        </div>
+    </div>
+</section>
+
+<script src="/js/donate.js"></script>
+
+

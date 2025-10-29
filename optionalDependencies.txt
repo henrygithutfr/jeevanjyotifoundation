@@ -1,0 +1,6 @@
+body-parser (if you’re handling forms — Express 4.16+ has built-in express.json() & express.urlencoded() so this may not be needed)
+cookie-parser (if you’ll use cookies/sessions)
+cors (if you’ll connect this API to another front-end app later)
+helmet	Adds security headers to protect against common attacks.
+compression	Gzip compression for faster page loads.
+morgan	Logging middleware (useful for debugging requests).

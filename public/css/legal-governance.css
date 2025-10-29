@@ -1,0 +1,574 @@
+.legal-governance-page .legal-governance-container {
+    width: 100%;
+    max-width: var(--pro-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Legal & Governance Page Styles */
+.legal-governance-page .legal-governance-page {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.legal-governance-page .page-heading {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 10rem;
+}
+
+.legal-governance-page .section-title {
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.legal-governance-page .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--main-theme-color);
+    border-radius: 2px;
+}
+
+.legal-governance-page .section-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Governance Structure */
+.legal-governance-page .governance-structure {
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .structure-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.legal-governance-page .structure-intro h2 {
+    color: var(--heading-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .structure-intro p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.legal-governance-page .structure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.legal-governance-page .structure-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--main-theme-color);
+}
+
+.legal-governance-page .structure-card:hover {
+    transform: translateY(-5px);
+}
+
+.legal-governance-page .structure-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff8f087;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--main-theme-color);
+}
+
+.legal-governance-page .structure-icon i {
+    font-size: 1.8rem;
+}
+
+.legal-governance-page .structure-card h3 {
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.legal-governance-page .structure-card p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+.legal-governance-page .structure-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.legal-governance-page .structure-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #fff8f087;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+}
+
+.legal-governance-page .structure-list li:last-child {
+    border-bottom: none;
+}
+
+.legal-governance-page .structure-list li i {
+    color: var(--main-theme-color);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Legal Framework */
+.legal-governance-page .legal-framework {
+    background-color: #fff8f087;
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .legal-framework h2 {
+    text-align: center;
+    color: var(--heading-color);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.legal-governance-page .legal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.legal-governance-page .legal-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.legal-governance-page .legal-card:hover {
+    transform: translateY(-5px);
+}
+
+.legal-governance-page .legal-card h3 {
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legal-governance-page .legal-card h3 i {
+    color: var(--main-theme-color);
+}
+
+.legal-governance-page .legal-card p {
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+/* Compliance & Transparency */
+.legal-governance-page .compliance-section {
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .compliance-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.legal-governance-page .compliance-intro h2 {
+    color: var(--heading-color);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .compliance-intro p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.legal-governance-page .compliance-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.legal-governance-page .compliance-item {
+    text-align: center;
+    padding: 25px 20px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.legal-governance-page .compliance-item:hover {
+    transform: translateY(-5px);
+}
+
+.legal-governance-page .compliance-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--main-theme-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #fff;
+}
+
+.legal-governance-page .compliance-icon i {
+    font-size: 2rem;
+}
+
+.legal-governance-page .compliance-item h4 {
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.legal-governance-page .compliance-item p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Policies Section */
+.legal-governance-page .policies-section {
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .policies-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.legal-governance-page .policies-intro h2 {
+    color: var(--heading-color);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .policies-intro p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.legal-governance-page .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.legal-governance-page .policy-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-top: 4px solid var(--primary);
+}
+
+.legal-governance-page .policy-card:hover {
+    transform: translateY(-5px);
+}
+
+.legal-governance-page .policy-card h3 {
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legal-governance-page .policy-card h3 i {
+    color: var(--main-theme-color);
+}
+
+.legal-governance-page .policy-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .policy-details {
+    background-color: #fff8f087;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+/* Financial Governance */
+.legal-governance-page .financial-section {
+    background-color: #fff8f087;
+    padding: 60px 40px;
+    border-radius: 15px;
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .financial-section h2 {
+    text-align: center;
+    color: var(--heading-color);
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.legal-governance-page .financial-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.legal-governance-page .financial-text {
+    flex: 1;
+}
+
+.legal-governance-page .financial-text h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.legal-governance-page .financial-text p {
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .financial-highlights {
+    flex: 1;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.legal-governance-page .financial-highlights h3 {
+    color: var(--heading-color);
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.legal-governance-page .highlight-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.legal-governance-page .highlight-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #fff8f087;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+}
+
+.legal-governance-page .highlight-list li:last-child {
+    border-bottom: none;
+}
+
+.legal-governance-page .highlight-list li i {
+    color: var(--main-theme-color);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Documents Section */
+.legal-governance-page .documents-section {
+    margin-bottom: 80px;
+}
+
+.legal-governance-page .documents-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.legal-governance-page .documents-intro h2 {
+    color: var(--heading-color);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.legal-governance-page .documents-intro p {
+    color: var(--gray);
+    font-size: 1.1rem;
+}
+
+.legal-governance-page .documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.legal-governance-page .document-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid #fff8f087;
+}
+
+.legal-governance-page .document-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--main-theme-color);
+}
+
+.legal-governance-page .document-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fff8f087;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: var(--primary);
+}
+
+.legal-governance-page .document-icon i {
+    font-size: 1.8rem;
+    color: var(--main-theme-color);
+}
+
+.legal-governance-page .document-card h4 {
+    color: var(--heading-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.legal-governance-page .document-card p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.legal-governance-page .doc-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: var(--main-theme-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.legal-governance-page .doc-link:hover {
+    background-color: var(--primary);
+}
+
+/* Contact Section */
+.legal-governance-page .contact-section {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: 15px;
+    color: var(--white);
+}
+
+.legal-governance-page .contact-section h2 {
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+    color: var(--heading-color);
+}
+
+.legal-governance-page .contact-section p {
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+    color: var(--heading-color);
+}
+
+.legal-governance-page .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.legal-governance-page .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legal-governance-page .contact-item i {
+    font-size: 1.5rem;
+    color: var(--main-theme-color);
+}
+
+.legal-governance-page .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    font-family: var(--font-segoe);
+}
+
+.legal-governance-page .btn-primary {
+    background-color: var(--main-theme-color);
+    color: var(--white);
+}
+
+.legal-governance-page .btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--main-theme-color);
+    color: var(--main-theme-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .legal-governance-page .section-title {
+        font-size: 2rem;
+    }
+
+    .legal-governance-page .structure-grid,
+    .legal-grid,
+    .compliance-features,
+    .legal-governance-page .policies-grid,
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legal-governance-page .financial-content {
+        grid-template-columns: 1fr;
+    }
+
+    .legal-governance-page .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

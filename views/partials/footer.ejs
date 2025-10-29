@@ -1,0 +1,50 @@
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-about">
+                <div class="logo">
+                    <a href="/">
+                        <img src="<%- footer[0].logo %>" alt="logo">
+                        <div class="logo-txt">
+                            <%- footer[0].logoText %>
+                        </div>
+                    </a>
+                </div>
+                <p><%- footer[0].logoDescription %></p>
+                <div class="social-links">
+                    <%- footer[0].socials %>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <%- footer[0].map %>
+                </div>
+            </div>
+
+            <!-- Contact Info & Map -->
+            <div class="footer-contact">
+                <%- footer[0].contactInfo %>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links-container">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <%- footer[0].quickLinks %>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="copyright">
+        <div class="copyright-container">
+            <p>&copy; <%- footer[0].copyrightText %></p>
+            <div class="copyright-links">
+                <%- footer[0].copyrightLinks %>
+            </div>
+        </div>
+    </div>
+</footer>

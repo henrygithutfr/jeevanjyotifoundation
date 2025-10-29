@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= locals.Title %>
+    </title>
+    <meta name="description" content="<%= locals.Description %>">
+    <meta name="keywords" content="<%= locals.Keywords %>">
+    <meta name="author" content="<%= locals.Author %>">
+    <meta name="robots" content="locals, follow">
+    <%- include('../partials/links.ejs') %>
+</head>
+
+<body>
+    <%- include('../partials/sm.ejs') %>
+        <%- include('../partials/header', { navbar: navbar }) %>
+            <main>
+                <section class="web_margin">
+                    <div class="web_margin_container">
+                        <%- body %>
+                    </div>
+                </section>
+            </main>
+            <%- include('../partials/footer', { navbar: navbar }) %>
+            <%- include('../partials/scripts.ejs') %>
+</body>
+
+</html>

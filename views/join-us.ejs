@@ -1,0 +1,109 @@
+<section class="join-us-page" id="joinUsPage">
+    <div class="join-us-container">
+        <div class="page-heading">
+            <h1 class="section-title" id="join"><%- contact[0].conTitle %></h1>
+            <p class="section-subtitle">
+                <%- contact[0].conDescription %>
+            </p>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <%- contact[0].leftContact %>
+            <form action="/contact" method="POST">
+                <div class="form-group"> <input class="form-input" type="text" name="name" placeholder="Your Name"
+                        required /> </div>
+                <div class="form-group"> <input class="form-input" type="email" name="email" placeholder="Your Email"
+                        required /> </div>
+                <div class="form-group"> <input class="form-input" type="number" name="number" placeholder="Your Number"
+                        required /> </div>
+                <div class="form-group"> <label for="subject"></label> <select id="subject" name="subject"
+                        required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="billing">Billing Question</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select> </div>
+                <div class="form-group"> <textarea class="form-input" name="message" placeholder="Your Message"
+                        required></textarea> </div> <button class="btn" type="submit">Send</button>
+                <% if (typeof success !=='undefined' ) { %>
+                    <% if (success) { %>
+                        <p class="success">Message sent successfully!</p>
+                        <% } else { %>
+                            <p class="error">Failed to send message. Try again.</p>
+                            <% } %>
+                                <% } %>
+            </form>
+            </div>
+                <!-- Contact Information -->
+                <div class="contact-info"
+                    style="background-image: url(https://i.ibb.co/7Jyxwz4d/contact.webp); height: auto;">
+                    <div class="contact-heading">
+                        <h2 class="info-title"><%- contact[0].rightConTitle %></h2>
+                        <p class="info-subtitle" style="margin-bottom: 3rem;"><%- contact[0].rightConDesc %></p>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <%- contact[0].address %>
+                        </div>
+
+                        <div class="contact-item">
+                            <%- contact[0].phone %>
+                        </div>
+
+                        <div class="contact-item">
+                            <%- contact[0].email %>
+                        </div>
+
+                        <div class="contact-item">
+                            <%- contact[0].hours %>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <%- contact[0].socials %>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Ways to Join -->
+        <div class="ways-to-join" style="margin-top: 7rem;">
+            <div class="ways-intro">
+                <h2><%- join[0].joinTitle %></h2>
+                <p><%- join[0].joinDescription %></p>
+            </div>
+
+            <%- join[0].wayGrid %>
+        </div>
+
+        <!-- Volunteer Opportunities -->
+        <%- join[0].volunteer %>
+
+            <!-- Donation Section -->
+            <%- join[0].donations %>
+
+                <!-- Partnership Section -->
+                <%- join[0].community %>
+
+                    <!-- Testimonials -->
+                    <%- join[0].impact %>
+
+                        <!-- Final CTA -->
+                        <%- join[0].growth %>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<header>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="<%- navbar[0].logo %>" alt="logo">
+                    <div class="logo-txt">
+                        <%- navbar[0].logoText %>
+                    </div>
+                </a>
+            </div>
+            <div class="navlists">
+                <ul>
+                    <%- navbar[0].navlink1 %>
+                        <%- navbar[0].navlink2 %>
+                            <%- navbar[0].navlink3 %>
+                                <%- navbar[0].navlink4 %>
+                                    <%- navbar[0].navlink5 %>
+                                        <%- navbar[0].navlink6 %>
+                </ul>
+                <ul class="cta-list">
+                    <li><a class="cta-btn" href="/join"> <i class="ri-user-add-line"></i>Join Us</a></li>
+                    <li><a class="cta-btn" href="/donate"><i class="ri-heart-line"></i>Donate Us</a></li>
+                </ul>
+            </div>
+            <div class="sec-right">
+                <div class="lang-switcher" style="display: none;">
+                    <%- navbar[0].lang %>
+                </div>
+                <div class="mobile-hamburger">
+                    <i class="ri-menu-fill" id="closeIcon"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

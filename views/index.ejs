@@ -1,0 +1,229 @@
+<section class="hero-slider">
+    <div class="slides-container">
+        <% hero.forEach((slide, index)=> { %>
+            <div class="slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                <div class="slide-bg" style="background-image: url('<%= slide.img %>')"></div>
+                <div class="slide-content">
+                    <h1>
+                        <%= slide.heroTitle || 'Empowering Communities with Compassion' %>
+                    </h1>
+                    <p>
+                        <%= slide.heroDescription
+                            || 'Jeevan Jyoti Foundation is a charitable trust dedicated to uplifting underprivileged lives through education, healthcare, and social development initiatives across Odisha.'
+                            %>
+                    </p>
+
+                    <div class="btn-group">
+                        <% if (slide.heroBtn1 && slide.heroBtn1.text) { %>
+                            <a href="<%= slide.heroBtn1.link || '#' %>" class="btn btn-primary">
+                                <%- slide.heroBtn1.text %>
+                            </a>
+                            <% } %>
+                                <% if (slide.heroBtn2 && slide.heroBtn2.text) { %>
+                                    <a href="<%= slide.heroBtn2.link || '#' %>" class="btn btn-secondary">
+                                        <%- slide.heroBtn2.text %>
+                                    </a>
+                                    <% } %>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+
+    <div class="navigation-container">
+        <button class="nav-btn prev-btn">
+            <i class="ri-arrow-left-s-line"></i>
+        </button>
+        <button class="nav-btn next-btn">
+            <i class="ri-arrow-right-s-line"></i>
+        </button>
+    </div>
+
+    <div class="slider-controls">
+        <div class="dots">
+            <% hero.forEach((slide, index)=> { %>
+                <div class="dot <%= index === 0 ? 'active' : '' %>" data-slide="<%= index %>"></div>
+                <% }) %>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about">
+    <div class="about-content">
+        <div class="about-text">
+            <h1>
+                <%= about[0].aboutTitle %>
+            </h1>
+
+            <p><%- about[0].aboutParagraph %>
+            </p>
+
+            <a href="/<%- about[0].aboutBtn.link %>" class="about-btn btn"> <%- about[0].aboutBtn.text %> </a>
+        </div>
+        <div class="about-image">
+            <img src="<%- about[0].img %>" alt="About Us Image">
+        </div>
+    </div>
+</section>
+
+
+<!-- Objective Section -->
+<section class="objectives">
+    <div class="objectives-container">
+        <div class="heading-container">
+            <h1 class="heading-text">
+                <%= objective[0]?.objTitle || "Our Objectives" %>
+            </h1>
+            <p class="heading-paragraph">
+                <%= objective[0]?.objDescription || "Our mission and goals" %>
+            </p>
+        </div>
+        <div class="objectives-grid">
+            <% objective.forEach(obj=> { %>
+                <div class="objective-card">
+                    <%- obj.objBoxIcon %>
+                        <h3>
+                            <%= obj.objBoxTitle %>
+                        </h3>
+                        <p>
+                            <%= obj.objBoxDescription %>
+                        </p>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+</section>
+
+
+<!-- Milestone Section -->
+<section class="milestones">
+    <div class="milestones-container">
+        <div class="heading-container">
+            <h2 class="heading-text">
+                <%= milestone[0]?.Title || "Celebrating the progress we've made together in creating a better future."
+                    %>
+            </h2>
+            <p class="heading-paragraph">
+                <%= milestone[0]?.Description
+                    || "Celebrating the progress we've made together in creating a better future." %>
+            </p>
+        </div>
+
+        <% milestone.forEach((milestone, index)=> { %>
+            <!-- Milestone <%= index + 1 %> -->
+            <div class="milestone-row <%= index % 2 === 1 ? 'reverse' : '' %>">
+                <div class="milestone-info">
+                    <div class="milestone-highlight">
+                        <i class="<%= milestone.milIcon %>"></i>
+                        <h3><span class="count" data-target="<%= milestone.milNum %>">0</span>+</h3>
+                    </div>
+                    <h2>
+                        <%= milestone.milTitle %>
+                    </h2>
+                    <p>
+                        <%= milestone.milDescription %>
+                    </p>
+                </div>
+                <div class="milestone-image">
+                    <img src="<%= milestone.milImg %>" alt="<%= milestone.milTitle %>">
+                </div>
+            </div>
+            <% }) %>
+
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact">
+    <div class="contact-container">
+        <!-- Contact Form -->
+        <%- contact[0].leftContact %>
+        <form action="/contact" method="POST">
+                <div class="form-group"> <input class="form-input" type="text" name="name" placeholder="Your Name"
+                        required /> </div>
+                <div class="form-group"> <input class="form-input" type="email" name="email" placeholder="Your Email"
+                        required /> </div>
+                <div class="form-group"> <input class="form-input" type="number" name="number" placeholder="Your Number"
+                        required /> </div>
+                <div class="form-group"> <label for="subject"></label> <select id="subject" name="subject"
+                        required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Technical Support</option>
+                        <option value="billing">Billing Question</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select> </div>
+                <div class="form-group"> <textarea class="form-input" name="message" placeholder="Your Message"
+                        required></textarea> </div> <button class="btn" type="submit">Send</button>
+                <% if (typeof success !=='undefined' ) { %>
+                    <% if (success) { %>
+                        <p class="success">Message sent successfully!</p>
+                        <% } else { %>
+                            <p class="error">Failed to send message. Try again.</p>
+                            <% } %>
+                                <% } %>
+            </form>
+</div>
+            <!-- Contact Information -->
+            <div class="contact-info" style="background-image: url('<%- contact[0].bgImage %>');">
+                <div class="contact-heading">
+                    <h2 class="info-title"><%- contact[0].rightConTitle %></h2>
+                    <p class="info-subtitle"><%- contact[0].rightConDesc %></p>
+                </div>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <%- contact[0].address %>
+                    </div>
+
+                    <div class="contact-item">
+                        <%- contact[0].phone %>
+                    </div>
+
+                    <div class="contact-item">
+                        <%- contact[0].email %>
+                    </div>
+
+                    <div class="contact-item">
+                        <%- contact[0].hours %>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <%- contact[0].socials %>
+                </div>
+
+                <div class="map-container" style="margin-top: 2rem;">
+                    <div class="map-placeholder">
+                        <%- contact[0].map %>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<!-- Join Section -->
+<section class="join"
+    style="background-image: url(https://i.ibb.co/tTR99gC2/colorful-hands-reaching-up-303714-10331-2-1.webp);">
+    <div class="join-container">
+        <div class="join-text">
+            <h1>Join Us in Empowering Communities <br> and Shaping the Future</h1>
+            <p>Join Jeevan Jyoti Foundation in transforming rural communities. Together, we can empower lives, promote
+                sustainability, and create opportunities for a brighter future. Be part of the change—contribute,
+                volunteer, or collaborate today!</p>
+            <a href="/join" class="cta-button btn">Join Us <i class="ri-external-link-line"></i></a>
+        </div>
+    </div>
+</section>
+
+
+<script src="/js/index.js"></script>
+
+
+
+
+
+
+
