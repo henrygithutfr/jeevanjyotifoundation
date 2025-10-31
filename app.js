@@ -22,6 +22,7 @@ const events = require("./routes/events");
 const gallery = require("./routes/gallery");
 const joinUsRouter = require("./routes/join-us");
 const donateRouter = require("./routes/donate");
+const qrRouter = require("./routes/qr");
 const contactRouter = require("./routes/contact");
 const compression = require('compression');
 const helmet = require('helmet');
@@ -129,6 +130,7 @@ app.use("/events", events);
 app.use("/gallery", gallery);
 app.use("/join", joinUsRouter);
 app.use("/donate", donateRouter);
+app.use("/donate/qr-scanner", qrRouter);
 app.use("/contact", contactRouter); // ✅ Only this one — supports GET & POST
 
 // ---------------------

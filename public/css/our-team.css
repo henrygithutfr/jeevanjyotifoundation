@@ -330,6 +330,8 @@
     text-decoration: none;
     transition: var(--transition);
     border: 2px solid transparent;
+    background-color: #fff;
+    color: var(--main-theme-color);
 }
 
 .team-page .btn-main---main-theme-color {

@@ -1,36 +1,49 @@
 <header>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="/">
-                    <img src="<%- navbar[0].logo %>" alt="logo">
-                    <div class="logo-txt">
-                        <%- navbar[0].logoText %>
-                    </div>
-                </a>
-            </div>
-            <div class="navlists">
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/">
+          <img src="https://i.ibb.co/PzwgSW0n/enhanced-logo.webp" alt="logo">
+          <div class="logo-txt">
+            <h2>Jeevan Jyoti</h2>
+            <h1>Foundation</h1>
+          </div>
+        </a>
+      </div>
+      <div class="navlists">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="dropdown-parent">
+            <a href="/about" class="dropdown-header">
+              <span>About</span>
+              <i class="ri-arrow-down-s-line dropdown-toggle"></i>
+            </a>
+            <div class="dropdown">
+              <div class="dropdown-container">
                 <ul>
-                    <%- navbar[0].navlink1 %>
-                        <%- navbar[0].navlink2 %>
-                            <%- navbar[0].navlink3 %>
-                                <%- navbar[0].navlink4 %>
-                                    <%- navbar[0].navlink5 %>
-                                        <%- navbar[0].navlink6 %>
+                  <li><a href="/about/our-team">Our Team</a></li>
+                  <li><a href="/about/mission-vision">Mission & Vision</a></li>
+                  <li><a href="/about/legal-governance">Legal & Governance</a></li>
+                  <li><a href="/about/history">History</a></li>
                 </ul>
-                <ul class="cta-list">
-                    <li><a class="cta-btn" href="/join"> <i class="ri-user-add-line"></i>Join Us</a></li>
-                    <li><a class="cta-btn" href="/donate"><i class="ri-heart-line"></i>Donate Us</a></li>
-                </ul>
+              </div>
             </div>
-            <div class="sec-right">
-                <div class="lang-switcher" style="display: none;">
-                    <%- navbar[0].lang %>
-                </div>
-                <div class="mobile-hamburger">
-                    <i class="ri-menu-fill" id="closeIcon"></i>
-                </div>
-            </div>
+          </li>
+          <li><a href="/our-work">Our Work</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <ul class="cta-list">
+          <li><a class="cta-btn" href="/join" style="padding: 0.2rem 1rem;"> <i class="ri-user-add-line"></i>Join Us</a></li>
+          <li><a class="cta-btn" href="/donate" style="padding: 0.2rem 1rem;"><i class="ri-heart-line"></i>Donate Us</a></li>
+        </ul>
+      </div>
+      <div class="sec-right">
+        <div class="mobile-hamburger">
+          <i class="ri-menu-fill" id="closeIcon"></i>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 </header>

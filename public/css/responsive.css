@@ -15,6 +15,20 @@
         padding: 10px 20px;
     }
 
+    .milestone-info h3 {
+        font-size: 2.5rem;
+        margin-left: 0rem;
+    }
+
+    .milestone-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .milestone-info p {
+        font-size: 1rem;
+        width: 100%;
+    }
+
     .masonry-container {
         padding: 20px;
     }
@@ -33,22 +47,6 @@
     }
 }
 
-@media (max-width: 1024px) {
-
-    /* header section */
-    .nav-container {
-        padding: 10px 15px;
-    }
-
-    .navlists ul li {
-        padding: 10px;
-    }
-
-    .navlists ul li a {
-        font-size: 14px;
-    }
-}
-
 @media (max-width: 992px) {
 
     /* header */
@@ -56,13 +54,106 @@
         padding: 20px;
     }
 
-    .slide h1 {
-        font-size: 2.75rem;
+    .navlists {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        z-index: 1000;
+        overflow-y: auto;
     }
 
-    .slide p {
-        font-size: 1.1rem;
-        padding: 0rem 8rem;
+    .navlists.active {
+        right: 0;
+    }
+
+    .navlists ul {
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    .navlists ul:first-child {
+        margin-right: 0;
+    }
+
+    .navlists li {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    .navlists a {
+        padding: 0.8rem 1rem;
+        width: 100%;
+    }
+
+    .cta-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.8rem;
+    }
+
+    .cta-btn {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .dropdown {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background-color: rgba(0, 0, 0, 0.02);
+        border-radius: 4px;
+        margin-top: 0.5rem;
+        display: none;
+    }
+
+    .dropdown.active {
+        display: block;
+    }
+
+    .dropdown-container {
+        padding: 0.5rem 0;
+    }
+
+    .dropdown-container a {
+        padding-left: 2rem;
+    }
+
+    .mobile-hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    /* Mobile dropdown icon styling */
+    .dropdown-toggle {
+        cursor: pointer;
+        padding: 5px;
+        margin-left: 5px;
+        border-radius: 4px;
+        transition: var(--transition);
+    }
+
+    .dropdown-toggle:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .dropdown-toggle.active {
+        transform: rotate(180deg);
+    }
+
+    .sec-right {
+        display: flex;
     }
 
     /* about */
@@ -93,15 +184,20 @@
 
     .join-text h1 {
         font-size: 2rem;
+        width: 100%;
     }
 
     .join-text p {
-        font-size: 1rem;
+        width: 100%;
     }
 
     /* footer section */
     .footer-content {
         gap: 30px;
+    }
+
+    .contact-text p {
+        font-size: 12px;
     }
 }
 
@@ -135,7 +231,7 @@
     }
 
     .navlists ul li {
-        padding: 12px 0;
+        padding: 0px 0;
         width: 100%;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     }
@@ -187,9 +283,7 @@
         margin-bottom: 10px;
     }
 
-    .sec-right{
-        display: flex;
-    }
+
 
     .mobile-hamburger {
         display: block;
@@ -325,6 +419,8 @@
 
     .milestone-image {
         margin-top: 1rem;
+        width: 100%;
+        height: 100%;
     }
 
     /* contact section */
@@ -369,7 +465,24 @@
 
 @media (max-width: 576px) {
 
+    .social-navigator {
+        width: 70%;
+        zoom: 80%;
+    }
+
+    .heading-text {
+        font-size: 1.5rem;
+    }
+
+    .heading-paragraph {
+        font-size: 0.9rem;
+    }
+
     /* header section */
+    .slide-content {
+        padding: 0 1rem;
+    }
+
     .slide-content h1 {
         font-size: 1.8rem;
     }
@@ -395,14 +508,16 @@
 
     .prev-btn {
         left: 10px;
+        top: 37rem;
     }
 
     .next-btn {
         right: 10px;
+        top: 37rem;
     }
 
     .slide h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
     }
 
     .hero-slider .btn-group {
@@ -411,12 +526,54 @@
     }
 
     .hero-slider .btn {
-        width: 100%;
+        width: auto;
         max-width: 250px;
         justify-content: center;
     }
 
+    .nav-container {
+        padding: 5px 20px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .hero-slider .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero-slider .next-btn,
+    .hero-slider .prev-btn {
+        top: 55%;
+    }
+
+    .mobile-hamburger i {
+        font-size: 20px;
+    }
+
+    .social-navigator {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+    }
+
     /* about section */
+    .about {
+        padding: 10px 0;
+    }
+
+    .about-index {
+        padding-top: 5rem;
+    }
+
+    .about-text h1 {
+        font-size: 1.5rem;
+    }
+
     .prev-btn {
         top: 42%;
     }
@@ -426,16 +583,461 @@
     }
 
     .join-text h1 {
-        font-size: 1.3rem;
+        font-size: 1rem;
     }
 
     .join-text p {
         font-size: 0.8rem;
     }
 
+    .about-container .about-content {
+        margin-bottom: 0px;
+    }
+
+    .about-team h2 {
+        font-size: 1.5rem;
+    }
+
+    .governance h3 i,
+    .promise h3 i {
+        color: var(--main-theme-color);
+        font-size: 1.3rem;
+    }
+
+    .governance h3,
+    .promise h3 {
+        font-size: 1.2rem;
+    }
+
+    .about-container .heading-text {
+        line-height: 2rem;
+    }
+
+    .about-container .heading-paragraph {
+        padding-bottom: 0rem;
+    }
+
+    .team-page .team-heading {
+        margin-bottom: 0px;
+        margin-top: 5rem;
+    }
+
+    .team-page .leader-info h2 {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+
+    .team-page .leader-role {
+        font-size: 0.9rem;
+    }
+
+    .team-page .leader-bio {
+        text-align: start;
+    }
+
+    .team-page .section-heading h2 {
+        font-size: 1.3rem;
+        line-height: 2rem;
+    }
+
+    .team-page .section-heading p {
+        font-size: 0.9rem;
+    }
+
+    .team-page .trustee-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .team-page .values-section {
+        padding: 60px 0px;
+    }
+
+    .team-page .values-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .team-page .cta-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .team-page .cta-section p {
+        font-size: 1rem;
+    }
+
+    /* Vision and Mission */
+    .mission-vision-page .page-heading {
+        margin-bottom: 0px;
+        margin-top: 0rem;
+    }
+
+    .mission-vision-page .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .mission-vision-page .hero-content p {
+        font-size: 1rem;
+    }
+
+    .vm-card {
+        padding: 40px 0px;
+    }
+
+    .vm-icon {
+        zoom: 60%;
+    }
+
+    .vm-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .vm-card p {
+        zoom: 90%;
+    }
+
+    .vm-highlight {
+        zoom: 80%;
+    }
+
+    .values-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .values-intro p {
+        font-size: 0.9rem;
+    }
+
+    .approach-section {
+        padding: 60px 0px;
+    }
+
+    .approach-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .approach-step {
+        zoom: 90%;
+    }
+
+    .step-number {
+        zoom: 90%;
+    }
+
+    .impact-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .impact-intro p {
+        font-size: 0.9rem;
+    }
+
+    .mission-vision-page .cta-section {
+        padding: 60px 0px;
+    }
+
+    .mission-vision-page .cta-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .mission-vision-page .cta-section p {
+        font-size: 0.9rem;
+    }
+
+    /* Legal and Governance */
+    .heading-paragraph {
+        padding-bottom: 0rem;
+    }
+
+    .legal-governance-page .legal-framework {
+        padding: 60px 00px;
+    }
+
+    .legal-governance-page .page-heading {
+        padding-top: 5rem;
+    }
+
+    .legal-governance-page .legal-framework h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .legal-governance-page .compliance-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .legal-governance-page .compliance-intro p {
+        font-size: 0.9rem;
+    }
+
+    .legal-governance-page .compliance-icon {
+        zoom: 60%;
+    }
+
+    .legal-governance-page .financial-section {
+        padding: 60px 0px;
+    }
+
+    .legal-governance-page .financial-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .legal-governance-page .financial-text h3 {
+        font-size: 1.2rem;
+    }
+
+    .legal-governance-page .documents-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .legal-governance-page .documents-intro p {
+        font-size: 0.9rem;
+    }
+
+    .legal-governance-page .contact-section {
+        padding: 60px 0px;
+    }
+
+    .legal-governance-page .contact-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .legal-governance-page .contact-section p {
+        font-size: 0.9rem;
+    }
+
+    .legal-governance-page .contact-info {
+        text-align: start;
+        zoom: 85%;
+    }
+
+    /* history */
+    .history-page .page-heading {
+        padding-top: 5rem;
+    }
+
+    .history-page .story-text h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .story-text p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .founder-quote {
+        padding: 0px;
+        margin-top: 0px;
+        zoom: 80%;
+    }
+
+    .history-page .timeline-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .timeline-intro p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .timeline::before {
+        left: 10px;
+    }
+
+    .history-page .timeline-item:nth-child(odd) .timeline-year,
+    .history-page .timeline-item:nth-child(even) .timeline-year {
+        left: -30px;
+        zoom: 80%;
+        top: -34px;
+    }
+
+    .history-page .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+    }
+
+    .history-page .timeline-content {
+        padding: 15px;
+        zoom: 90%;
+    }
+
+    .history-page .milestones-section {
+        padding: 60px 0px;
+    }
+
+    .history-page .milestones-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .milestones-intro p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .milestone-icon {
+        zoom: 80%;
+    }
+
+    .history-page .milestone-card {
+        zoom: 90%;
+    }
+
+    .history-page .growth-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .growth-intro p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .growth-number {
+        zoom: 80%;
+    }
+
+    .history-page .growth-image {
+        max-height: 400px;
+    }
+
+    .history-page .legacy-text h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .legacy-text p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .legacy-image {
+        max-height: 400px;
+    }
+
+    .history-page .future-section {
+        padding: 60px 0px;
+    }
+
+    .history-page .future-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .history-page .future-section p {
+        font-size: 0.9rem;
+    }
+
+    .history-page .future-card {
+        zoom: 90%;
+    }
+
+    /* our work */
+    .our-work-page .page-heading {
+        padding-top: 5rem;
+    }
+
+    .our-work-page .section-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .our-work-page .section-title {
+        font-size: 0.9rem;
+    }
+
+    .our-work-page .impact-card {
+        zoom: 80%;
+    }
+
+    .our-work-page .categories-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .our-work-page .categories-intro p {
+        font-size: 0.9rem;
+    }
+
+    .our-work-page .category-icon {
+        zoom: 70%;
+    }
+
+    .our-work-page .success-stories {
+        padding: 60px 0px;
+    }
+
+    .our-work-page .stories-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .our-work-page .stories-intro p {
+        font-size: 0.9rem;
+    }
+
+    .our-work-page .reach-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .our-work-page .reach-intro p {
+        font-size: 0.9rem;
+    }
+
+    .our-work-page .reach-content {
+        flex-direction: row;
+        zoom: 90%;
+    }
+
+    .our-work-page .involved-cta {
+        padding: 60px 0px;
+    }
+
+    .our-work-page .involved-cta h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .our-work-page .involved-cta p {
+        font-size: 0.9rem;
+    }
+
+    /* Events */
+    .events-index {
+        margin-top: 0rem;
+    }
+
+    .events-container h3 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    /* gallery */
+    .gallery-header {
+        margin-top: 4rem;
+    }
+
     /* contact section */
+
     .section-title {
         font-size: 1.6rem;
+    }
+
+    .contact-heading {
+        zoom: 80%;
+    }
+
+    .join-us-page .page-heading {
+        margin-top: 5rem;
+    }
+
+    .contact-header .section-subtitle {
+        text-align: center;
     }
 
     .contact-form,
@@ -444,11 +1046,124 @@
     }
 
     .contact-item {
-        flex-direction: column;
+        flex-direction: row;
     }
 
     .contact-icon {
         margin-bottom: 10px;
+    }
+
+    .contact-details {
+        zoom: 90%;
+    }
+
+    input,
+    textarea,
+    select {
+        font-size: 0.7rem;
+    }
+
+    .join-us-page .section-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Join us */
+    .join-us-page .ways-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .way-card {
+        zoom: 80%;
+    }
+
+    .join-us-page .ways-intro p {
+        font-size: 0.5rem;
+    }
+
+    .join-us-page .volunteer-section {
+        padding: 60px 0px;
+    }
+
+    .join-us-page .volunteer-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .volunteer-intro p {
+        font-size: 0.9rem;
+    }
+
+    .join-us-page .donation-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .donation-intro p {
+        font-size: 0.9rem;
+    }
+
+    .join-us-page .partnership-section {
+        padding: 60px 0px;
+    }
+
+    .join-us-page .partnership-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .partnership-intro p {
+        font-size: 0.9rem;
+    }
+
+    .join-us-page .btn {
+        width: auto;
+    }
+
+    .join-us-page .testimonials-intro h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .testimonials-intro p {
+        font-size: 0.9rem;
+    }
+
+    .join-us-page .cta-section h2 {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .join-us-page .cta-section p {
+        font-size: 0.9rem;
+    }
+
+    /* Donate */
+    .donate-page .page-header {
+        padding: 0px 0 31px;
+    }
+
+    .donate-page .page-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .donate-page .page-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .donate-page .section-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+
+    .donate-page .tax-info p {
+        font-size: 0.9rem;
     }
 
     /* footer section */

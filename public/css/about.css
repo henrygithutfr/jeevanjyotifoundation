@@ -29,10 +29,6 @@ body {
     background-color: var(--white);
 }
 
-.about-index {
-    margin-top: 5rem;
-}
-
 .about-index-heading {
     text-align: center;
     margin-bottom: 60px;

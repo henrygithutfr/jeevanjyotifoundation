@@ -96,6 +96,7 @@ router.get('/', async (req, res) => {
             rightContact: page.properties["rightContact"]?.rich_text?.[0]?.plain_text || "",
             bgImage: page.properties["bgImage"]?.url || "",
             bigMap: page.properties["biggerMap"]?.url || "",
+            map: page.properties["map"]?.url || "",
             rightConTitle: page.properties["rightConTitle"]?.rich_text?.[0]?.plain_text || "",
             rightConDesc: page.properties["rightConDesc"]?.rich_text?.[0]?.plain_text || "",
             address: page.properties["address"]?.rich_text?.[0]?.plain_text || "",

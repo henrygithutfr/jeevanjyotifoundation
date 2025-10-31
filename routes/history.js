@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
             foundingStory: page.properties["foundingStory"]?.url || "",
             timeline: page.properties["timeline"]?.url || "",
             milestones: page.properties["milestones"]?.rich_text?.[0]?.plain_text || "",
-            growth: page.properties["growth"]?.rich_text?.[0]?.plain_text || "",
+            growth: page.properties["growth"]?.url || "",
             legacy: page.properties["legacy"]?.url || "",
             futureVision: page.properties["futureVision"]?.rich_text?.[0]?.plain_text || "",
         }));

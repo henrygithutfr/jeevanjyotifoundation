@@ -1,121 +1,83 @@
-const langBtn = document.getElementById("lang-btn");
-const langMenu = document.getElementById("lang-menu");
-const currentLang = document.getElementById("current-lang");
-const navbar = document.querySelector("nav");
-
-// Nav Drop Shadow 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-// Toggle menu
-langBtn.addEventListener("click", () => {
-  langMenu.classList.toggle("hidden");
-});
-
-// Handle language selection
-document.querySelectorAll("#lang-menu li").forEach(item => {
-  item.addEventListener("click", () => {
-    const selectedLang = item.getAttribute("data-lang");
-    currentLang.textContent = selectedLang.toUpperCase();
-    langMenu.classList.add("hidden");
-    translatePage(selectedLang);
-  });
-});
-
-// Close dropdown if clicked outside
-document.addEventListener("click", (e) => {
-  if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
-    langMenu.classList.add("hidden");
-  }
-});
-
-// Function to change language using Google Translate
-function translatePage(lang) {
-  const select = document.querySelector(".goog-te-combo");
-  if (select) {
-    select.value = lang;
-    select.dispatchEvent(new Event("change"));
-  }
-}
-
-
 // Mobile menu toggle
 const mobileHamburger = document.querySelector('.mobile-hamburger');
-const navlists = document.querySelector('.navlists');
-const overlay = document.querySelector('.overlay');
-const dropdown = document.querySelector('.dropdown');
-const dropdownParents = document.querySelectorAll('.dropdown-parent');
+const navLists = document.querySelector('.navlists');
+const closeIcon = document.getElementById('closeIcon');
+const overlay = document.createElement('div');
+overlay.className = 'overlay';
+document.body.appendChild(overlay);
 
-mobileHamburger.addEventListener('click', function () {
-  navlists.classList.toggle('active');
-  this.classList.toggle('active');
-
+mobileHamburger.addEventListener('click', () => {
+  navLists.classList.toggle('active');
+  mobileHamburger.classList.toggle('active');
+  overlay.classList.toggle('active');
 });
 
-overlay.addEventListener('click', function (e) {
-  e.preventDefault();
-  dropdown.classList.toggle('hide')
+// Close mobile menu when clicking on overlay
+overlay.addEventListener('click', () => {
+  navLists.classList.remove('active');
+  mobileHamburger.classList.remove('active');
+  overlay.classList.remove('active');
 });
 
 // Dropdown toggle for mobile
+const dropdownParents = document.querySelectorAll('.dropdown-parent');
+
 dropdownParents.forEach(parent => {
-  parent.addEventListener('click', function (e) {
-    if (window.innerWidth <= 768) {
+  const dropdownLink = parent.querySelector('a');
+  const dropdownToggle = parent.querySelector('.dropdown-toggle');
+  const dropdown = parent.querySelector('.dropdown');
+
+  // Click on dropdown icon toggles the dropdown
+  dropdownToggle.addEventListener('click', (e) => {
+    if (window.innerWidth <= 992) {
       e.preventDefault();
-      this.classList.toggle('active');
+      e.stopPropagation();
+      dropdown.classList.toggle('active');
+      dropdownToggle.classList.toggle('active');
+
+      // Close other dropdowns
+      dropdownParents.forEach(otherParent => {
+        if (otherParent !== parent) {
+          otherParent.querySelector('.dropdown').classList.remove('active');
+          otherParent.querySelector('.dropdown-toggle').classList.remove('active');
+        }
+      });
+    }
+  });
+
+  // Click on "About" text goes to the page (not on mobile)
+  dropdownLink.addEventListener('click', (e) => {
+    if (window.innerWidth <= 992) {
+      // If clicking the text (not the icon), go to the page
+      if (e.target.tagName === 'SPAN') {
+        // Allow normal navigation
+        return;
+      }
+
+      // If clicking the link but not the icon, go to the page
+      if (e.target === dropdownLink && !dropdownToggle.contains(e.target)) {
+        // Allow normal navigation
+        return;
+      }
+
+      // Otherwise, prevent default for icon clicks
+      if (dropdownToggle.contains(e.target)) {
+        e.preventDefault();
+      }
     }
   });
 });
 
-// Close mobile menu on resize if window becomes larger
-window.addEventListener('resize', function () {
-  if (window.innerWidth > 768) {
-    navlists.classList.remove('active');
-    overlay.classList.remove('active');
-    mobileHamburger.classList.remove('active');
-  }
-});
-
-function isTouchDevice() {
-  return window.matchMedia("(hover: none)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
-}
-
-document.querySelectorAll(".navlists li > a").forEach(link => {
-  const parentLi = link.closest("li");
-  const dropdown = parentLi.querySelector(".dropdown");
-
-  if (dropdown) {
-    let firstTap = false;
-
-    link.addEventListener("click", function (e) {
-      if (isTouchDevice()) {
-        if (!firstTap) {
-          e.preventDefault(); // Stop navigation on first tap
-          firstTap = true;
-          parentLi.classList.add("open");
-
-          // Close dropdown if clicked outside
-          const outsideClickHandler = (ev) => {
-            if (!parentLi.contains(ev.target)) {
-              parentLi.classList.remove("open");
-              firstTap = false;
-              document.removeEventListener("click", outsideClickHandler);
-            }
-          };
-          document.addEventListener("click", outsideClickHandler);
-        } else {
-          // Second tap = follow link
-          window.location.href = link.href;
-        }
-      }
-      // Desktop users with hover just navigate as usual
-    });
+// Close dropdowns when clicking outside on desktop
+document.addEventListener('click', (e) => {
+  if (window.innerWidth > 992) {
+    if (!e.target.closest('.dropdown-parent')) {
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateY(10px)';
+      });
+    }
   }
 });
 

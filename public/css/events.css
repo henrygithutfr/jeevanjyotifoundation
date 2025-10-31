@@ -29,10 +29,6 @@ body {
     background-color: var(--white);
 }
 
-.events-index {
-    margin-top: 5rem;
-}
-
 .events-index-heading {
     text-align: center;
     margin-bottom: 60px;
@@ -68,7 +64,6 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    border-bottom: 2px solid var(--main-theme-color);
     width: fit-content;
 }
 

@@ -691,6 +691,11 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+}
+
+.map-container-index .map-placeholder iframe{
+    width: 100%;
 }
 
 .map-placeholder i {

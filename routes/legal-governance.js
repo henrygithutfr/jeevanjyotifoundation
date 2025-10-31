@@ -38,8 +38,10 @@ router.get('/', async (req, res) => {
             policies: page.properties["policies"]?.rich_text?.[0]?.plain_text || "",
             financial: page.properties["financial"]?.rich_text?.[0]?.plain_text || "",
             documents: page.properties["documents"]?.rich_text?.[0]?.plain_text || "",
-            contact: page.properties["contact"]?.rich_text?.[0]?.plain_text || "",
+            contact: page.properties["contact"]?.url || "",
         }));
+
+        console.log(legalGovernance[0]?.contact)
 
         // --- Metadata ---
         const locals = {
