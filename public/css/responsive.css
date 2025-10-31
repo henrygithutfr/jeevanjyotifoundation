@@ -156,6 +156,18 @@
         display: flex;
     }
 
+    .logo-txt {
+        display: flex;
+    }
+
+    .logo-txt h1 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--main-theme-color);
+        margin-left: 0.3rem;
+    }
+
     /* about */
     .about-image {
         padding: 20px;
@@ -478,6 +490,10 @@
         font-size: 0.9rem;
     }
 
+    .hero-slider {
+        height: 80vh;
+    }
+
     /* header section */
     .slide-content {
         padding: 0 1rem;
@@ -554,7 +570,7 @@
     }
 
     .social-navigator {
-        width: 50%;
+        width: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -1166,6 +1182,10 @@
         font-size: 0.9rem;
     }
 
+    .donate-page .donate-btn {
+        zoom: 70%;
+    }
+
     /* footer section */
     .footer-content {
         grid-template-columns: 1fr;
@@ -1180,4 +1200,10 @@
         justify-content: center;
     }
 
+}
+
+@media (max-width: 896px) {
+    .objectives {
+        zoom: 80%;
+    }
 }

@@ -602,7 +602,7 @@ textarea {
 .contact-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .contact-icon {
