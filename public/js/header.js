@@ -70,16 +70,15 @@ dropdownParents.forEach(parent => {
 
 // Close dropdowns when clicking outside on desktop
 document.addEventListener('click', (e) => {
-  if (window.innerWidth > 992) {
+  if (window.innerWidth <= 992) {
     if (!e.target.closest('.dropdown-parent')) {
-      document.querySelectorAll('.dropdown').forEach(dropdown => {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.transform = 'translateY(10px)';
+      document.querySelectorAll('.dropdown.active').forEach(dropdown => {
+        dropdown.classList.remove('active');
       });
     }
   }
 });
+
 
 
 

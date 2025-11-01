@@ -155,6 +155,7 @@ header {
   transform: translateY(10px);
   transition: var(--transition);
   z-index: 100;
+  transition: all 0.25s ease;
 }
 
 .dropdown-container {
@@ -183,6 +184,12 @@ header {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.dropdown-header span:hover .dropdown{
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Mobile Styles */
