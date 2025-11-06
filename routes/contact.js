@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Client } = require('@notionhq/client');
 const NodeCache = require('node-cache');
-const nodemailer = require('nodemailer');
+const axios = require('axios'); // 👈 Added for Brevo API
 require('dotenv').config();
 
 // === Notion + Cache Setup ===
@@ -53,45 +53,41 @@ router.get('/', async (req, res) => {
     }
 });
 
-// === POST Route (Send Email via Brevo SMTP) ===
+// === POST Route (Send Email via Brevo API) ===
 router.post('/', async (req, res) => {
     const { name, email, number, subject, message } = req.body;
 
-    // Brevo SMTP Transport
-    const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: false,
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-        },
-    });
-
-    const mailOptions = {
-        from: {
-            name: "Jeevan Jyoti Foundation",
-            address: "contact@jeevanjyotifoundation.co.in", // must be verified sender
-        },
-        to: process.env.USER_GMAIL,
-        replyTo: email,
-        subject: `📩 New Contact Form Message from ${name}`,
-        html: `
-    <h2>New Contact Form Submission</h2>
-    <p><b>Name:</b> ${name}</p>
-    <p><b>Email:</b> ${email}</p>
-    <p><b>Phone:</b> ${number}</p>
-    <p><b>Subject:</b> ${subject}</p>
-    <p><b>Message:</b><br>${message}</p>
-  `,
-    };
-
     try {
-        await transporter.sendMail(mailOptions);
-        console.log("✅ Email sent successfully via Brevo!");
+        // Send email using Brevo Transactional API
+        const response = await axios.post(
+            'https://api.brevo.com/v3/smtp/email',
+            {
+                sender: { name: "Jeevan Jyoti Foundation", email: "contact@jeevanjyotifoundation.co.in" },
+                to: [{ email: process.env.USER_GMAIL }],
+                replyTo: { email },
+                subject: `📩 New Contact Form Message from ${name}`,
+                htmlContent: `
+                    <h2>New Contact Form Submission</h2>
+                    <p><b>Name:</b> ${name}</p>
+                    <p><b>Email:</b> ${email}</p>
+                    <p><b>Phone:</b> ${number}</p>
+                    <p><b>Subject:</b> ${subject}</p>
+                    <p><b>Message:</b><br>${message}</p>
+                `,
+            },
+            {
+                headers: {
+                    'accept': 'application/json',
+                    'api-key': process.env.BREVO_API_KEY, // 👈 secure auth key
+                    'content-type': 'application/json',
+                },
+            }
+        );
+
+        console.log("✅ Email sent successfully via Brevo API!");
         res.render('contact-success', { success: true });
     } catch (error) {
-        console.error("❌ Email sending failed:", error);
+        console.error("❌ Email sending failed:", error.response?.data || error.message);
         res.render('contact-failure', { success: false });
     }
 });
