@@ -5,25 +5,18 @@ const NodeCache = require('node-cache');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// Initialize Notion client and cache
+// === Notion + Cache Setup ===
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 const conDb = process.env.CON_DB;
-const cache = new NodeCache({ stdTTL: 300, checkperiod: 120 }); 
-// stdTTL = 300 seconds (5 min) cache duration, can adjust as needed
+const cache = new NodeCache({ stdTTL: 300, checkperiod: 120 });
 
-// GET - Contact Page
+// === GET Route ===
 router.get('/', async (req, res) => {
     try {
-        // Check if cached data exists
-        const cachedContact = cache.get('contactData');
-        if (cachedContact) {
-            return res.render('contact', cachedContact);
-        }
+        const cached = cache.get('contactData');
+        if (cached) return res.render('contact', cached);
 
-        const responseCon = await notion.databases.query({
-            database_id: conDb,
-        });
-
+        const responseCon = await notion.databases.query({ database_id: conDb });
         const contact = responseCon.results.map(page => ({
             title: page.properties.Title?.title?.[0]?.plain_text || 'Unnamed',
             description: page.properties.Description?.rich_text?.[0]?.plain_text || '',
@@ -51,59 +44,56 @@ router.get('/', async (req, res) => {
             Author: contact[0]?.author || "",
         };
 
-        // Store the rendered data in cache
-        const cacheData = { locals, contact };
-        cache.set('contactData', cacheData);
-
-        res.render('contact', cacheData);
-
+        const data = { locals, contact };
+        cache.set('contactData', data);
+        res.render('contact', data);
     } catch (error) {
-        console.error('Error fetching Notion data:', error.message);
+        console.error('❌ Error fetching Notion data:', error.message);
         res.status(500).send('Failed to fetch data');
     }
 });
 
-// POST - Handle form submission
+// === POST Route (Send Email via Brevo SMTP) ===
 router.post('/', async (req, res) => {
-
     const { name, email, number, subject, message } = req.body;
 
+    // Brevo SMTP Transport
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        secure: false,
         auth: {
-            user: process.env.USER_GMAIL,
-            pass: process.env.CONTACT_APP_PASS,
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
         },
     });
 
     const mailOptions = {
         from: {
-            name: 'Jeeva Jyoti Foundation',
-            address: process.env.USER_GMAIL
+            name: "Jeevan Jyoti Foundation",
+            address: "contact@jeevanjyotifoundation.co.in", // must be verified sender
         },
         to: process.env.USER_GMAIL,
-        subject: `New Contact Form Submission from ${name}`,
-        text: `You got a message from:
-Name: ${name}
-Email: ${email}
-Phone: ${number}
-Subject: ${subject}
-Message: ${message}`,
-        html: `<p><b>Name:</b> ${name}</p>
-               <p><b>Email:</b> ${email}</p>
-               <p><b>Phone:</b> ${number}</p>
-               <p><b>Subject:</b> ${subject}</p>
-               <p><b>Message:</b><br>${message}</p>`,
+        replyTo: email,
+        subject: `📩 New Contact Form Message from ${name}`,
+        html: `
+    <h2>New Contact Form Submission</h2>
+    <p><b>Name:</b> ${name}</p>
+    <p><b>Email:</b> ${email}</p>
+    <p><b>Phone:</b> ${number}</p>
+    <p><b>Subject:</b> ${subject}</p>
+    <p><b>Message:</b><br>${message}</p>
+  `,
     };
 
     try {
         await transporter.sendMail(mailOptions);
+        console.log("✅ Email sent successfully via Brevo!");
         res.render('contact-success', { success: true });
     } catch (error) {
-        console.error("Error sending email:", error);
+        console.error("❌ Email sending failed:", error);
         res.render('contact-failure', { success: false });
     }
-
 });
 
 module.exports = router;
